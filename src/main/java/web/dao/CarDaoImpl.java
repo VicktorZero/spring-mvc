@@ -22,12 +22,11 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public List<Car> showCars(int count) {
+    public List<Car> getCountCars(Integer count) {
+        if(count == null || count >= 5){
+            return carList;
+        }
         return carList.stream().limit(count).collect(Collectors.toList());
     }
 
-    @Override
-    public List<Car> listCars() {
-        return carList;
-    }
 }
